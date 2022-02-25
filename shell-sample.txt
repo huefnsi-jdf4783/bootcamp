@@ -1,1 +1,2 @@
 Hello Shell
+echoは文字列を表示するもの
