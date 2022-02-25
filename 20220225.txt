@@ -1,0 +1,86 @@
+作業内容
+  見積もり時間
+  1時間　shell前提知識
+  1時間  使用しているshellを確認する/linux commandについて調べる
+  1時間　echoコマンドについて調べ、それを利用したshell scriptコードする
+  2時間　githubにpushできるようにする
+  
+  Total 5時間
+  
+  実績時間
+  1時間　shell前提知識
+  1時間  使用しているshellを確認する/linux commandについて調べる
+  30分　echoコマンドについて調べ、それを利用したshell scriptコードする
+  6時間以上　githubにpushできるようになる
+  1時間　ローカルで作ったファイルをリモートにpushし、pull requestできるようにする
+  
+  Total 9時間半以上
+  
+ 週間の目標稼働時間・実績時間
+   目標>> 17時間　(2/22~2/25)
+   実績>> 21時間半　(2/22~2/25)
+   
+感想
+   今日初めてターミナルからgithubの方にpush,pull requestすることができた。
+   今日こそはという思いで始めたため、終わるまでは寝ないと決めていたが、
+   結果として次の日の早朝6時までかかってしまった。
+   しかし、今日ようやくpull requestを成功させた時は本当に嬉しく、たくさん調べ、たくさん失敗し、
+   試行錯誤した甲斐があったと感じた。進捗としては極僅かだが、学んだことはたくさんあった。
+   
+   【学び】
+   1. fatal: remote origin already exists.エラーが出た時
+   >> $ git remote rm originで対応する。
+   
+   2. VMwareとmicrosoftの間でコピペができなかった理由
+   >> VMware toolをダウンロードしていなかったから。
+   
+   3. ssh keyを設定したのにも関わらず、
+   fatal: Authentication failed for 'https://github.com/xxxxxx/yyyyyy.git/というエラーが出た
+   >> httpsから始まるurlを使っていたが、token/sshのいずれかを使う必要がある。
+      httpsからsshに変えるには、
+      .git/configで現状を確認し、remote origin git@github.com..とコマンドを打ち、sshのurlを
+    　確認した。その後、pushすることができた。
+    　現状がどうなっているかを確認することと、エラーが出てきたときの説明文やヘルプをしっかりと
+    　読むことである程度は解決できると感じたので、エラーの文を蔑ろにしないようにしようと思う。
+    　
+    4. pushはできたが、pull requestができなかった。
+    >> pushしたものと既存のもののワークツリーが違ってしまったためだった。
+       いろいろ試したが、うまく行かず結局レポジトリを新しく作り直すことにした。
+       また、README.があるとpushする際にコンフリクトを起こしてしまいうまくいかないので、
+       レポジトリを作る際には勝手に作らないように設定しなければならない。
+       
+    5. これでpushはできるようになったが、2回目にpull requestをしようと思ったら、
+    　　pull requestとmergeをする前にテキストに反映されてしまった。
+    　　>> branchを作っていなかったからだった。
+    　　　 使ったコマンド>> git clone git@github.com/...
+    　　　                 git config user.name
+    　　　                 cd デイレクトリ名
+    　　　                 ls
+    　　　                 git branch --contains=HEAD (カレントブランチを確認)
+    　　　                 git checkout -branch name (ブランチの作成、移動)
+    　　　                 echo "" >> file name
+    　　　                 git add file name
+    　　　                 git commit -m ""
+    　　　                 git log
+    　　　                 git push origin branch name
+    　　　                 
+    6. git pushの際にEverything-up-to-sateというエラーが初めて出た。
+    　　>> 調べたところ、コミットのし忘れだったので、いつもどおりgit add, git commit,
+    　　   git pushをしたら改善された。また、git commitのあとにgit logを忘れがちなので
+    　　   コミットされたかを確認するためにもcommitのあとは必ずlogをする癖をつけようと思う。
+    　　   
+　　　自分が今何をしているのかよくわかっていない状態で、エラーを修正するために
+　　　今日はとても時間がかかってしまったが、そのおかげでたくさんの情報を得ることができた。
+　　　今日はたくさんのコマンドを実際に使いエラーを修正するために、多くの新しいコマンド(cat.etc)も
+　　　使い、もうすでに勉強したものに関しては昨日よりも理解を深めることができた。
+　　　とても難しかったが、今日一つ課題を突破したことで、楽しいと思うことができたのは自分の中での
+　　　一番の収穫だったと思う。
+　　　
+
+　　　    　　　                 
+    　　　                 
+    　　　               
+    　　　                 
+   
+   
+
